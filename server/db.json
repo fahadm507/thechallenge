@@ -1,0 +1,9 @@
+{
+  "challenges": [
+    { "id": 1, "title": "first challenge", "author": "typicode", "description": "This challenge will help you get off your butt and start working out." }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
