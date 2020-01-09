@@ -1,5 +1,4 @@
 import React from 'react';
-import { string } from 'prop-types';
 
 import { Form, Input, Button  } from 'antd';
 
@@ -32,7 +31,7 @@ class ChallengeForm extends React.Component {
             <Input.TextArea 
               type="text"
               placeholder="Description"
-            />,
+            />
           )}
         </Form.Item>
         <Button type="primary" htmlType="submit">
@@ -44,8 +43,3 @@ class ChallengeForm extends React.Component {
 }
 
 export default Form.create({ name: 'challenge_form' })(ChallengeForm);
-
-ChallengeForm.propTypes = {
-  title: string.isRequired,
-  description: string.isRequired
-};
