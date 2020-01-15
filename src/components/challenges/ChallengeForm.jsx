@@ -2,20 +2,21 @@ import React from 'react';
 
 import { Form, Input, Button  } from 'antd';
 
-class ChallengeForm extends React.Component {
-  handleSubmit = e => {
+const ChallengeForm = (props) => {
+  const { handleCreate, form } = props;
+  const handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        handleCreate(values)
       }
     });
   };
 
-  render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator } = form;
     return (
-      <Form onSubmit={this.handleSubmit} layout="horizontal" className="login-form">
+      <Form onSubmit={handleSubmit} layout="horizontal" className="login-form">
         <Form.Item label="Title">
           {getFieldDecorator('title', {
             rules: [{ required: true, message: 'Please enter a title' }],
@@ -39,7 +40,6 @@ class ChallengeForm extends React.Component {
         </Button>
       </Form>
     );
-  }
 }
 
-export default Form.create({ name: 'challenge_form' })(ChallengeForm);
+export default ChallengeForm;
