@@ -1,13 +1,15 @@
  import { 
     SIGN_IN,
     SIGN_OUT,
-    CREATE_CHALLENGE
+    CREATE_CHALLENGE,
+    FETCH_CHALLENGE,
+    FETCH_CHALLENGES
  } from './types';
- import challenges from '../../apis/challenges.js';
+ import cApi from '../../apis/challenges.js';
  import history from '../../history';
 
-//create action creators 
-console.log(`challenges ${challenges}`)
+//create action creators
+
 export const signIn = (userId) => {
     return {
         type: SIGN_IN,
@@ -22,7 +24,25 @@ export const signOut = () => {
 }
 
 export const createChallenge = (data) => async (dispatch, getState) => {
-    const response = await challenges.post('/challenges', data)
+    // todo: remember to send the user who created the challenge e.g userID
+    const response = await cApi.post('/challenges', data)
     dispatch({ type: CREATE_CHALLENGE, payload: response.data })
     history.push('/challenges');
 }
+
+/***
+ * @description {fetchChallenge}
+ * gets the current challenge object in scope
+ * @returns function
+ */
+
+export const fetchChallenge = (id) => async (dispatch, getState) => {
+    const response = await cApi.get(`/challenges/${id}`);
+    dispatch({ type: FETCH_CHALLENGE, payload: response.data })
+}
+
+export const fetchChallenges = () => async (dispatch, getState) => {
+    const response = await cApi.get('/challenges');
+    dispatch({ type: FETCH_CHALLENGES, payload: response.data })
+}
+

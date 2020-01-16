@@ -1,30 +1,35 @@
 import React from 'react';
-import axios from '../../apis/challenges';
+import { connect } from 'react-redux';
+import { List } from 'antd';
+import ChallengeListItem from './ChallengeListItem';
+import { fetchChallenges } from '../../store/actions';
 
 class ChallengeList extends React.Component {
 
-  state = { 
-    challenges: []
-  }
-
-  async componentDidMount(){
-    const response = await axios.get('/challenges');
-    this.setState({challenges: response.data })
+  componentDidMount(){
+    this.props.fetchChallenges()
   }
   render(){
-    console.log(`Retrieved challenge: ${this.state.challenges}`)
-    const challenges = this.state.challenges.map(challenge => (
-      <li key={challenge.id}>{challenge.title}</li>
+    const challenges = this.props.challenges && this.props.challenges.map(challenge => (
+      <ChallengeListItem challenge={challenge}/>
     ));
     return(
       <div>
         <h1> Welcome to the challenge </h1>
-        <ul>
+        <List>
           {challenges}
-        </ul>
+        </List>
       </div>
     );
   } 
 };
 
-export default ChallengeList;
+const mapStateToProps = (state) => {
+  return {
+    challenges: Object.values(state.challenges),
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchChallenges
+})(ChallengeList);

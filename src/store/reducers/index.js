@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import createChallengeReducer from './createChallengeReducer';
+import challengesReducer from './challengesReducer';
 
 export default combineReducers({
     auth: authReducer,
-    createChallenge: createChallengeReducer
+    challenges: challengesReducer
 });

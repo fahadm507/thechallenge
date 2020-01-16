@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/challenges" component={ChallengeList} />
             <Route exact path="/challenges/edit/:id" component={EditChallenge} />
             <Route exact path="/challenges/:id" component={ShowChallenge} />
-            <Route exact path="/delete/:id" component={DeleteChallenge} />
+            <Route exact path="/challenges/delete/:id" component={DeleteChallenge} />
           </Switch>
       </Layout>
     );
