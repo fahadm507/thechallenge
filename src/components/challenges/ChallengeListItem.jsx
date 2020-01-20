@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { string, shape, number } from 'prop-types';
-import { List } from 'antd';
+import { List, Button } from 'antd';
 
 const { Item } = List;
 
-const ChallengeListItem = ({ challenge }) => {
+const ChallengeListItem = (props) => {
+    const { toggleDetailsDrawer, challenge } = props;
     return(
-        <Item key={challenge.id}
+        <Item
             actions={[
             <Link to={`challenges/edit/${challenge.id}`}>edit</Link>, 
-            <Link to={`challenges/${challenge.id}`}>Details</Link>,
-            <Link to={`challenges/delete/${challenge.id}`}>Delete</Link>, 
+            // <Link to={`challenges/${challenge.id}`}>
+               <Button type="primary" onClick={() => toggleDetailsDrawer(challenge)}> Details</Button>,
+            <Link to={`challenges/delete/${challenge.id}`}><Button type="danger">Delete</Button></Link>, 
         ]}>
           
         {challenge.title}

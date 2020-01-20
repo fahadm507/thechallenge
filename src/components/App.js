@@ -16,6 +16,7 @@ class App extends Component {
       <Layout className="layout">
         <NavBar />
           <Switch>
+            <Route exact path="/" component={ChallengeList} />
             <Route exact path="/new" component={CreateChallenge} />
             <Route exact path="/challenges" component={ChallengeList} />
             <Route exact path="/challenges/edit/:id" component={EditChallenge} />

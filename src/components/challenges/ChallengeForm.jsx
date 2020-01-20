@@ -4,7 +4,6 @@ import { Form, Input, Button  } from 'antd';
 
 const ChallengeForm = (props) => {
   const { challenge, handleSubmit, form } = props;
-
   const { getFieldDecorator } = form;
   return (
     <Form onSubmit={handleSubmit} layout="horizontal" className="login-form">

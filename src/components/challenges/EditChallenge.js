@@ -23,10 +23,8 @@ class EditChallenge extends React.Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const targetChallenge = Object.values(state.challenges)
-    .find(val => val.id === Number(ownProps.match.params.id));
   return {
-    challenge: targetChallenge
+    challenge: state.challenges.find(val => val.id === Number(ownProps.match.params.id))
   };
 };
 
