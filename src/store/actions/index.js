@@ -29,7 +29,6 @@ export { showDeleteChallengeModal } from './modalVisibility';
 // Challenge action creators
 export const createChallenge = (data) => async (dispatch, getState) => {
     // todo: remember to send the user who created the challenge e.g userID
-    debugger;
     const response = await cApi.post('/challenges', data)
     dispatch({ type: CREATE_CHALLENGE, payload: response.data })
     history.push('/challenges');
