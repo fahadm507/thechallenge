@@ -4,11 +4,11 @@ import { Form } from 'antd';
 import history from '../../history';
 import ChallengeForm from './ChallengeForm';
 import { createChallenge } from '../../store/actions';
-import DrawerInstance from '../../components/Layout/DrawerInstance';
+import CustomModal from '../../components/Layout/CustomModal';
 
 class CreateChallenge extends React.Component {
   state = {
-    showDrawer: true,
+    showModal: true,
     challenge: {
       title: '', 
       description: ''
@@ -21,8 +21,8 @@ class CreateChallenge extends React.Component {
     this.props.createChallenge(data)
   }
 
-  closeDrawer = () => {
-    this.setState({ showDrawer: false })
+  closeModal = () => {
+    this.setState({ showModal: false })
     history.push('/');
   }
 
@@ -39,21 +39,21 @@ class CreateChallenge extends React.Component {
   };
 
   render(){
-    const drawerProps = {
+    const modalCallbacks = { 
+      onClose: this.closeModal,
+      handleSubmit: this.handleSubmit
+     }
+
+    const modalProps = {
       title: 'Create Challenge',
       resource: this.state.challenge,
-      component: challenge => <ChallengeForm handleSubmit={this.handleSubmit} { ...this.props } />,
-      visible: this.state.showDrawer,
+      component: challenge => <ChallengeForm challenge={this.state.challenge}  { ...this.props }  />,
+      visible: this.state.showModal,
       submit: true
     };
 
-    const drawerCallbacks = { onClose: this.closeDrawer }
-
     return (
-      <>
-      <h1> Create a new Challenge </h1>
-      <DrawerInstance { ...drawerProps } { ...drawerCallbacks } />
-      </>
+      <CustomModal { ...modalProps } { ...modalCallbacks } />
     )
   }
   

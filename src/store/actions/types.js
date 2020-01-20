@@ -6,7 +6,7 @@ export const SIGN_OUT = 'SIGN_OUT';
 export const CREATE_CHALLENGE = 'CREATE_CHALLENGE';
 export const FETCH_CHALLENGE = 'FETCH_CHALLENGE';
 export const FETCH_CHALLENGES = 'FETCH_CHALLENGES' ;
-export const EDIT_CHALLENGE = 'EDIT_CHALLENGE';
+export const UPDATE_CHALLENGE = 'UPDATE_CHALLENGE';
 export const DELETE_CHALLENGE = 'DELETE_CHALLENGE';
 
 // Modal window action types

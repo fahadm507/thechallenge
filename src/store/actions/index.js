@@ -2,6 +2,7 @@
     SIGN_IN,
     SIGN_OUT,
     CREATE_CHALLENGE,
+    UPDATE_CHALLENGE,
     DELETE_CHALLENGE,
     FETCH_CHALLENGE,
     FETCH_CHALLENGES
@@ -29,9 +30,23 @@ export { showDeleteChallengeModal } from './modalVisibility';
 // Challenge action creators
 export const createChallenge = (data) => async (dispatch, getState) => {
     // todo: remember to send the user who created the challenge e.g userID
-    const response = await cApi.post('/challenges', data)
+    const { userId } = getState().auth;
+
+    const payload = Object.assign({ userId }, data)
+    const response = await cApi.post('/challenges', payload)
     dispatch({ type: CREATE_CHALLENGE, payload: response.data })
     history.push('/challenges');
+}
+
+export const updateChallenge = (challengeId, data) => async (dispatch, getState) => {
+    // todo: Check to see if this user has permissions to modify this challenge
+    try {
+        const response = await cApi.patch(`/challenges/${challengeId}`, data);
+        dispatch({ type: UPDATE_CHALLENGE, payload: response.data })
+        history.push('/')
+    } catch (e) {
+        history.push(`/challenges/edit/${challengeId}`);
+    }  
 }
 
 /***

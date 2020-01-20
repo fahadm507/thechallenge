@@ -2,7 +2,8 @@ import {
     FETCH_CHALLENGES,
     FETCH_CHALLENGE,
     CREATE_CHALLENGE,
-    DELETE_CHALLENGE
+    DELETE_CHALLENGE,
+    UPDATE_CHALLENGE
  } from '../actions/types';
 
 export default(state=[], action) => {
@@ -13,6 +14,8 @@ export default(state=[], action) => {
         case CREATE_CHALLENGE:
             return [ ...state, action.payload]
         case FETCH_CHALLENGE:
+            return [ ...state, action.payload]
+        case UPDATE_CHALLENGE:
             return [ ...state, action.payload]
         case DELETE_CHALLENGE:
             return [ ...state.filter(challenge => challenge.id !== action.payload)]

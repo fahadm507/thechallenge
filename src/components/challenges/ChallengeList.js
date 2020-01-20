@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List } from 'antd';
 import ChallengeListItem from './ChallengeListItem';
-import DrawerInstance from '../Layout/DrawerInstance';
+import CustomModal from '../Layout/CustomModal';
 import ShowChallenge from '../challenges/ShowChallenge';
 import { fetchChallenges } from '../../store/actions';
 
 class ChallengeList extends React.Component {
   state = {
     toggleDeleteModal: false,
-    toggleEditDrawer: false,
-    toggleCreateDrawer: false,
-    showDrawer: false ,
+    toggleEditModal: false,
+    toggleCreateModal: false,
+    showModal: false ,
     selectedChallenge: {},
   }
 
@@ -27,37 +27,37 @@ class ChallengeList extends React.Component {
     this.setState({toggleDeleteModal: !this.state.toggleDeleteModal})
   };
 
-  toggleEditDrawer = () => {
+  toggleEditModal = () => {
     this.setState({ toggleDeleteModal: !this.state.toggleEditModal })
   };
 
-  toggleCreateDrawer = () => {
+  toggleCreateModal = () => {
     this.setState({toggleDeleteModal: !this.state.toggleCreateModal})
   }
 
-  toggleDetailsDrawer = (challenge) => {
+  toggleDetailsModal = (challenge) => {
     this.setState({ selectedChallenge: Object.assign({},challenge) })
-    this.setState({ showDrawer: true })
+    this.setState({ showModal: true })
   }
 
-  closeDrawer = () => {
-    this.setState({ showDrawer: false })
+  closeModal = () => {
+    this.setState({ showModal: false })
   }
 
   render(){
-    const drawerProps = {
+    const modalProps = {
       title: 'Challenge Details',
       resource: this.state.selectedChallenge,
       component: challenge => <ShowChallenge  challenge={challenge} />,
-      visible: this.state.showDrawer,
+      visible: this.state.showModal,
       submit: false
     };
     
     const callbacks = {
       deleteChallenge: this.deleteChallenge,
-      toggleDetailsDrawer: this.toggleDetailsDrawer,
+      toggleDetailsModal: this.toggleDetailsModal,
       toggleDeleteModal: this.toggleDeleteModal,
-      onClose: this.closeDrawer,
+      onClose: this.closeModal,
     }
 
     const challenges = this.props.challenges && this.props.challenges.map(challenge => (
@@ -70,8 +70,8 @@ class ChallengeList extends React.Component {
           {challenges}
         </List>
         { 
-          this.state.showDrawer &&  
-          <DrawerInstance { ...callbacks } { ...drawerProps }  />
+          this.state.showModal &&  
+          <CustomModal { ...callbacks } { ...modalProps }  />
         }
       </div>
     );
