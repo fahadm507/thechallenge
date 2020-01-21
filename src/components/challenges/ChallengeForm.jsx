@@ -27,9 +27,6 @@ const ChallengeForm = (props) => {
           />
         )}
       </Form.Item>
-      <Button type="primary" htmlType="submit">
-          Save
-      </Button>
     </Form>
   );
 }

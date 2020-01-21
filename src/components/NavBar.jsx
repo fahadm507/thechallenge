@@ -2,26 +2,23 @@ import React from 'react';
 import GoogleAuth from './GoogleAuth';
 import { STRINGS as S }  from './../constants';
 import { Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Menu } from 'antd';
 
-const { Header } = Layout;
+// const { Header } = Layout;
 
 
 const NavBar = () => {
   return (
-    <Header>
       <Menu
-        theme="dark"
+        theme="red"
         mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
+        defaultSelectedKeys={['3']}
+        style={{ lineHeight: '50px' }}
       >
         <Menu.Item><Link to="/new"> {S.sNewChallenge}</Link></Menu.Item>
         <Menu.Item><Link to="/challenges"> {S.sMyChallenges}</Link></Menu.Item>
         <Menu.Item><Link to="/signin"><GoogleAuth /></Link></Menu.Item>
-
       </Menu>
-    </Header>
   ) 
 };
 

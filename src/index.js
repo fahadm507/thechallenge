@@ -11,7 +11,6 @@ import reducers from './store/reducers';
 import history from './history';
 
 const composeEnhencers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const store = createStore(
     reducers,
     composeEnhencers(applyMiddleware(reduxThunk))
@@ -20,7 +19,7 @@ const store = createStore(
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
-      <App/>
+      <App />
     </Provider>
   </Router>,
    document.querySelector('#root')
