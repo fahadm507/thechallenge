@@ -8,7 +8,9 @@ import ShowChallenge from '../components/challenges/ShowChallenge';
 import EditChallenge from '../components/challenges/EditChallenge';
 import DeleteChallenge from '../components/challenges/DeleteChallenge';
 import NavBar from './NavBar';
+
 const { Header, Content, Footer } = Layout;
+
 
 class App extends React.Component {
     render(){
@@ -32,7 +34,7 @@ class App extends React.Component {
               </Layout>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              Challengily ©2018 All rights reserverd.
+              Challengily ©2020 All rights reserverd.
             </Footer>
         </Layout>
   );

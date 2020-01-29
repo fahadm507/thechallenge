@@ -17,7 +17,7 @@ const NavBar = () => {
       >
         <Menu.Item><Link to="/new"> {S.sNewChallenge}</Link></Menu.Item>
         <Menu.Item><Link to="/challenges"> {S.sMyChallenges}</Link></Menu.Item>
-        <Menu.Item><Link to="/signin"><GoogleAuth /></Link></Menu.Item>
+        <Menu.Item><GoogleAuth /></Menu.Item>
       </Menu>
   ) 
 };
