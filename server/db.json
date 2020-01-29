@@ -3,12 +3,14 @@
     {
       "id": 10,
       "title": "has title now 00001",
-      "description": "has titledsfs"
+      "description": "has titledsfs",
+      "isPublic": false
     },
     {
       "id": 11,
       "title": "has title 3",
-      "description": "dfsfs"
+      "description": "dfsfs",
+      "isPublic": false
     },
     {
       "title": "Hiking mt Everestt",
@@ -49,6 +51,27 @@
       "title": "Comming soon 1",
       "description": "fsfsfs",
       "id": 21
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "Learning how to use radio buttons",
+      "description": "something cool",
+      "isPublic": true,
+      "id": 22
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "Making the challenge public",
+      "description": "Making a challenge public is easy, just select 'public' radio button",
+      "isPublic": false,
+      "id": 23
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "30 day pushup challenge",
+      "description": "Make 10 pushups every day for 30 days and log the results",
+      "isPublic": false,
+      "id": 24
     }
   ],
   "comments": [
