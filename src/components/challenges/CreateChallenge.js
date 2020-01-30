@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Form } from 'antd';
 import history from '../../history';
-import ChallengeForm from './ChallengeForm';
+// import ChallengeForm from '..challenges/ChallengeForm';
 import { createChallenge } from '../../store/actions';
 import CustomModal from '../../components/Layout/CustomModal';
+import ChallengeStepsContainer from './ChallengeSteps/ChallengeStepsContainer';
 
 class CreateChallenge extends React.Component {
   state = {
@@ -47,7 +48,7 @@ class CreateChallenge extends React.Component {
     const modalProps = {
       title: 'Create Challenge',
       resource: this.state.challenge,
-      component: challenge => <ChallengeForm challenge={this.state.challenge}  { ...this.props }  />,
+      component: challenge => <ChallengeStepsContainer challenge={this.state.challenge}  { ...this.props }  />,
       visible: this.state.showModal,
       submit: true
     };

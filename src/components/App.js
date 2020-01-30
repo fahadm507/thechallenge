@@ -7,6 +7,7 @@ import CreateChallenge from '../components/challenges/CreateChallenge';
 import ShowChallenge from '../components/challenges/ShowChallenge';
 import EditChallenge from '../components/challenges/EditChallenge';
 import DeleteChallenge from '../components/challenges/DeleteChallenge';
+import ChallengeStepsContainer from '../components/challenges/ChallengeSteps/ChallengeStepsContainer';
 import NavBar from './NavBar';
 
 const { Header, Content, Footer } = Layout;
@@ -29,6 +30,7 @@ class App extends React.Component {
                         <Route exact path="/challenges/edit/:id" component={EditChallenge} />
                         <Route exact path="/challenges/:id" component={ShowChallenge} />
                         <Route exact path="/challenges/delete/:id" component={DeleteChallenge} />
+                        <Route exact path="/steps" component={ChallengeStepsContainer} />
                     </Switch>
                 </Content>
               </Layout>

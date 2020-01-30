@@ -16,10 +16,11 @@ class GoogleAuth extends React.Component {
 
   componentDidMount(){
     this.unsubscribeFromAuth = this.auth.onAuthStateChanged(user => {
-      this.setState({
-           isSignedIn: true, 
-           currentUser: user
-      }, () => this.onAuthChange(user));
+      if(user){
+        this.props.signIn(user.uid);
+      }else {
+        this.props.signOut();
+      }
     })
   }
 
@@ -27,13 +28,6 @@ class GoogleAuth extends React.Component {
     this.unsubscribeFromAuth();
   }
 
-  onAuthChange = currentUser => {
-    if(currentUser){
-      this.props.signIn(this.state.currentUser.uid);
-    }else {
-      this.props.signOut();
-    }
-  }
 
   onSignInClick  = () => {
     signInWithGoogle()
@@ -41,7 +35,6 @@ class GoogleAuth extends React.Component {
   
   onSignOutClick = async () => {
      await this.auth.signOut();
-     this.setState({ isSignedIn: false })
   }
 
   renderAuthButton() {

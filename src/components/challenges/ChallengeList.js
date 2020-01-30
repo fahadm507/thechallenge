@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { List } from 'antd';
 import ChallengeListItem from './ChallengeListItem';
 import CustomModal from '../Layout/CustomModal';
-import ShowChallenge from '../challenges/ShowChallenge';
+import ChallengeStepsContainer from './ChallengeSteps/ChallengeStepsContainer';
 import { fetchChallenges } from '../../store/actions';
 
 class ChallengeList extends React.Component {
@@ -48,7 +48,7 @@ class ChallengeList extends React.Component {
     const modalProps = {
       title: 'Challenge Details',
       resource: this.state.selectedChallenge,
-      component: challenge => <ShowChallenge  challenge={challenge} />,
+      component: challenge => <ChallengeStepsContainer  challenge={challenge} />,
       visible: this.state.showModal,
       submit: false
     };
