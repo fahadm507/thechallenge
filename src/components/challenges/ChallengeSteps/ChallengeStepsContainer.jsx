@@ -1,5 +1,6 @@
 import React from 'react';
 import { Steps, Button, message } from 'antd';
+import './steps.css'
 // mport ChallengeForm from '../ChallengeForm';
 import { BasicInformation, ChallengeActionSteps, FinalStep } from './Steps';
 const { Step } = Steps;

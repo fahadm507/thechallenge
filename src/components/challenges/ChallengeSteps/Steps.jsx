@@ -26,7 +26,9 @@ export class ChallengeActionSteps extends Component {
     }
 
     addNewActionStep = () => {
-        const { actionSteps } = this.state;
+        const { form } = this.props;
+        const actionSteps = form.getFieldValue('actions');
+
         const id = actionSteps.length + 1;
         this.setState({
             actionSteps: [
@@ -36,33 +38,70 @@ export class ChallengeActionSteps extends Component {
         });
     };
 
+    toggleEditAndDisplay = (title, description, actionIndex) => {
+        console.log(
+            `title: ${title}
+            description: ${description}`
+        )
+        return(
+            <Step style={{ width: '83%' }} key={actionIndex}
+                title={title}
+                description={description} 
+            />
+        )
+    }
+
     getActionSteps = () => {
         const { actionSteps } = this.state;
-        const { current } = this.props;
+        const { current, form, challenge } = this.props;
+
         return (
             <Steps current={current} direction="vertical">
-                {actionSteps.map((action, actionIndex) => (
-                    <Step key={actionIndex}
-                        title={
-                            <Input 
-                                placeholder={`Enter step ${actionIndex + 1}`}
-                                value={action.description}
-                            />
-                        }
-                        description={
-                            <TextArea
-                                value={action.description}
-                                placeholder={`Enter description for step ${actionIndex + 1}`}
-                            />
+                {
+                    actionSteps.map((action, actionIndex) => {
+                        const titleInput = (
+                            form.getFieldDecorator(`actions[${actionIndex}][title]`, {
+                                rules: [{ 
+                                    required: true,
+                                    message: 'Please input your nickname!',
+                                    whitespace: true }
+                                ],
+                                initialValue: action.title
+                            })(<Input
+                                style={{ width: '100%', marginBottom: 2 }}
+                                placeholder={`Enter step ${actionIndex + 1}`} />)
+                        );
+                        const titleText = form.getFieldValue(`actions[${actionIndex}][title]`)
+                        const descriptionInput = (
+                            form.getFieldDecorator(`actions[${actionIndex}][description]`, {
+                                rules: [{ 
+                                    required: true,
+                                    message: 'Please input your nickname!',
+                                    whitespace: true }
+                                ],
+                                initialValue: action.title
+                            })(
+                                <TextArea
+                                    style={{ width: '80%', marginTop: 2 }}
+                                    placeholder={`Enter description for step ${actionIndex + 1}`}
+                                />
+                            )
+                        );
+                        const descriptionText = form.getFieldValue(`actions[${actionIndex}][description]`);
+                        if (actionIndex === actionSteps.length - 1 ) {
+                            return this.toggleEditAndDisplay(titleInput, descriptionInput, actionIndex)
                         } 
-                    />
-                ))}
+                        return this.toggleEditAndDisplay(titleText, descriptionText, actionIndex)
+                        
+                    })
+                }
             </Steps>
         )
     };
 
     render(){
-        // const { challenge, form } = this.props;
+        const { actionSteps } = this.state;
+        const { current, form, challenge } = this.props;
         return (
             <div>
                 <Divider />
@@ -75,7 +114,18 @@ export class ChallengeActionSteps extends Component {
                             <Button type='default' onClick={this.addNewActionStep}>Add action</Button>
                         </TabPane>
                         <TabPane tab="Preview changes" key="2">
-                            Add preview of action steps here.
+                            <Steps current={current} direction="vertical">
+                                {actionSteps.map((action, actionIndex) => (
+                                    <Step key={actionIndex}
+                                        title={
+                                            form.getFieldValue(`actions[${actionIndex}][title]`)
+                                        }
+                                        description={
+                                            form.getFieldValue(`actions[${actionIndex}][description]`)
+                                        } 
+                                    />
+                                ))}
+                            </Steps>  
                         </TabPane>
                     </Tabs>
                 </div>   
