@@ -2,38 +2,40 @@ import React from 'react';
 import GoogleAuth from './GoogleAuth';
 import { STRINGS as S }  from './../constants';
 import { Link } from 'react-router-dom';
-import { Menu, Row, Col } from 'antd';
-
-// const { Header } = Layout;
-
+import { Menu, Icon, Input } from 'antd';
+const { SubMenu } = Menu;
+const { Search } = Input;
 
 const NavBar = () => {
   return (
-      <Menu
-        theme="red"
-        mode="horizontal"
-        defaultSelectedKeys={['3']}
-        style={{ lineHeight: '50px' }}
-      >
-        <Row>
-          <Col span={12}>
-            <Menu.Item><Link to="/"> Challengily </Link></Menu.Item>
-          </Col>
-          <Col span={8}>
-              <Menu.Item>
-                <Link to="/home"> Home </Link>
-                <Link to="/about us"> {S.sMyChallenges}</Link>
-                <Link to="/new"> {S.sNewChallenge} </Link>
-                <Link to="/challenges"> {S.sMyChallenges}</Link>
-              </Menu.Item>
-          </Col>
-          <Col col span={2} style={{ marginRight: 0}}>
-            <Menu.Item>
-              <GoogleAuth />
-            </Menu.Item>
-          </Col>
-        </Row>
-      </Menu>
+  <Menu mode="horizontal">
+        <Menu.Item key="challengilyBrand">
+          <Icon type="smile" />
+          CHALLENGILY
+        </Menu.Item>
+        
+        <Menu.Item key="globalSearch" style={{ borderBottom: 'none', marginLeft: 200 }}>
+            <Search placeholder="Discover challenges"  />
+        </Menu.Item>
+        <SubMenu style={{ float: 'right' }}
+          title={
+            <span className="submenu-title-wrapper">
+              <Icon type="user" />
+              My profile
+            </span>
+          }
+        >
+          <Menu.ItemGroup title="Account">
+            <Menu.Item key="setting:1">My challenges</Menu.Item>
+            <Menu.Item key="setting:2">Change settings</Menu.Item>
+            <Menu.Item key="setting:3"><GoogleAuth /></Menu.Item>
+          </Menu.ItemGroup>
+        </SubMenu>
+        <Menu.Item key="challengesMenu" style={{ float: 'right' }}>
+          <Icon type="down" />
+          My Challenges
+        </Menu.Item>
+      </Menu>     
   ) 
 };
 
