@@ -6,14 +6,15 @@ import { List, Button } from 'antd';
 const { Item } = List;
 
 const ChallengeListItem = (props) => {
-    const { toggleDetailsModal, challenge } = props;
+    const { challenge } = props;
     return(
         <Item
             actions={[
-            <Link to={`challenges/edit/${challenge.id}`}>edit</Link>, 
-            // <Link to={`challenges/${challenge.id}`}>
-               <Button type="primary" onClick={() => toggleDetailsModal(challenge)}> Details</Button>,
-            <Link to={`challenges/delete/${challenge.id}`}><Button type="danger">Delete</Button></Link>, 
+            <>
+            <Link to={`challenges/edit/${challenge.id}`}><Button type="default">Edit</Button></Link>
+            <Link to={`challenges/${challenge.id}`}> <Button type="primary">See details</Button></Link>
+            <Link to={`challenges/delete/${challenge.id}`}><Button type="danger">Delete</Button></Link>
+            </>
         ]}>
           
         {challenge.title}

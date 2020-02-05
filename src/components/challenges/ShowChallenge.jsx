@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchChallenge } from '../../store/actions/'
 
-const ShowChallenge = (props) => {
-  const getContent = () => {
-    const { challenge } = props;
+class ShowChallenge extends Component {
+  componentDidMount(){
+    this.props.fetchChallenge(this.props.match.params.id)
+  }
+  render() {
+    const { challenge } = this.props;
     return (
       <>
-      <h1>{challenge.title}</h1>
-      <p>{challenge.description}</p>
+      <h1>{challenge && challenge.title}</h1>
+      <p>{challenge && challenge.description}</p>
       </>
     );
   }
-
-  return getContent();
 }
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     challenge: state.challenges.find(challenge => challenge.id === Number(ownProps.match.params.id))
-//   }
-// };
+const mapStateToProps = (state, ownProps) => {
+  return {
+    challenge: state.challenge
+  }
+};
 
-export default ShowChallenge;
+export default connect(mapStateToProps,{
+  fetchChallenge
+})(ShowChallenge);

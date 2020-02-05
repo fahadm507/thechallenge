@@ -13,8 +13,6 @@ export default(state=[], action) => {
             return [ ...challenges]
         case CREATE_CHALLENGE:
             return [ ...state, action.payload]
-        case FETCH_CHALLENGE:
-            return [ ...state, action.payload]
         case UPDATE_CHALLENGE:
             return [ ...state, action.payload]
         case DELETE_CHALLENGE:
