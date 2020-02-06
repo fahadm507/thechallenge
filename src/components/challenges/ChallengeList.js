@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { List } from 'antd';
+import { Row } from 'antd';
 import ChallengeListItem from './ChallengeListItem';
 import CustomModal from '../Layout/CustomModal';
 import ShowChallenge from '../challenges/ShowChallenge';
@@ -66,9 +66,11 @@ class ChallengeList extends React.Component {
     return(
       <div>
         <h1> Welcome to the challenge </h1>
-        <List>
+        <Row gutter={16}>
           {challenges}
-        </List>
+        </Row>
+        <div style={{ background: '#ECECEC', padding: '30px' }}>
+  </div>
         { 
           this.state.showModal &&  
           <CustomModal { ...callbacks } { ...modalProps }  />

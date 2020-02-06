@@ -28,7 +28,6 @@ class CreateChallenge extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    debugger;
     const { form } = this.props;
     form.validateFields((err, values) => {
       if (!err) {
