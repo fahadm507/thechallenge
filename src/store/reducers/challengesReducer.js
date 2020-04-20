@@ -8,15 +8,14 @@ import {
 export default(state=[], action) => {
     switch(action.type){
         case FETCH_CHALLENGES: 
-            const challenges = Object.values(action.payload)
-            return [ ...challenges]
+            return [ ...Object.values(action.payload)];
         case CREATE_CHALLENGE:
-            return [ ...state, action.payload]
+            return [ ...state, action.payload];
         case UPDATE_CHALLENGE:
-            return [ ...state, action.payload]
+            return [ ...state, action.payload];
         case DELETE_CHALLENGE:
-            return [ ...state.filter(challenge => challenge.id !== action.payload)]
+            return [ ...state.filter(challenge => challenge.id !== action.payload)];
         default:
-            return state
+            return state;
     }
 };

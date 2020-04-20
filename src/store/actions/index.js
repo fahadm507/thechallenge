@@ -5,16 +5,17 @@
     UPDATE_CHALLENGE,
     DELETE_CHALLENGE,
     FETCH_CHALLENGE,
-    FETCH_CHALLENGES
+    FETCH_CHALLENGES,
+    JOIN_CHALLENGE
  } from './types';
  import cApi from '../../apis/challenges.js';
  import history from '../../history';
 
 // Auth action creators
-export const signIn = (userId) => {
+export const signIn = (user) => {
     return {
         type: SIGN_IN,
-        payload: userId
+        payload: user
     }
 }
 
@@ -82,7 +83,14 @@ export const deleteChallenge = (challengeId) => async (dispatch, getState) => {
         ${e.message}
         `)
     }
- 
-
 }
+
+export const joinChallenge = (userId, challengeId) => async (dispatch, getState) => {
+    try{
+        const response = await cApi.post(`/challenges/${challengeId}/join`, userId);
+        dispatch({ type: JOIN_CHALLENGE, payload: response.data  })
+    }catch(e){
+        console.log(`something went wrong: ${e.message}`);
+    }
+}; 
 

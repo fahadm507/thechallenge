@@ -1,63 +1,26 @@
 {
   "challenges": [
     {
-      "id": 10,
-      "title": "has title now 00001",
-      "description": "has titledsfs",
-      "isPublic": false
-    },
-    {
-      "id": 11,
-      "title": "has title 3",
-      "description": "dfsfs",
-      "isPublic": false
-    },
-    {
-      "title": "Hiking mt Everestt",
-      "description": "I challenge you to climb mt Everest this year.",
-      "id": 15
-    },
-    {
-      "title": "Comming soon 3",
-      "description": "ssfsfsfsf",
-      "id": 16
-    },
-    {
-      "userId": "104901470736137749955",
-      "title": "Creating a new challenge for me and my peers",
-      "description": "just did it",
-      "id": 17
-    },
-    {
       "userId": "104901470736137749955",
       "title": "Buy something nice for Tona",
       "description": "something nice for Tona",
-      "id": 18
+      "id": 18,
+      "actionSteps": "Instructions\n",
+      "isPublic": true
     },
     {
       "userId": "104901470736137749955",
       "title": "Comming soon 2",
       "description": "description",
-      "id": 19
-    },
-    {
-      "userId": "104901470736137749955",
-      "title": "working out daily",
-      "description": "working out is good for your brain",
-      "id": 20
+      "id": 19,
+      "actionSteps": "sfs",
+      "isPublic": false
     },
     {
       "userId": null,
       "title": "Comming soon 1",
       "description": "fsfsfs",
       "id": 21
-    },
-    {
-      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
-      "title": "Learning how to use radio buttons",
-      "description": "something cool",
-      "isPublic": true,
-      "id": 22
     },
     {
       "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
@@ -68,10 +31,73 @@
     },
     {
       "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
-      "title": "30 day pushup challenge",
-      "description": "Make 10 pushups every day for 30 days and log the results",
+      "title": "Test challenge",
+      "description": "sfsf",
+      "actionSteps": "sfsfs",
+      "isPublic": true,
+      "id": 26
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "Test challenge",
+      "description": "aafafaf",
+      "id": 27,
+      "actionSteps": "Do something everyday that challenges you to get better at your job",
+      "isPublic": false
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "test challenge",
+      "description": "sfsfs",
+      "id": 28
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "challenge",
+      "description": "fsfs",
+      "actionSteps": "sfsfs",
       "isPublic": false,
-      "id": 24
+      "id": 29
+    },
+    {
+      "userId": "JyXjFk2owPR2DiwEX0GfObhmp252",
+      "title": "Hello world ",
+      "description": "sfsfs",
+      "actionSteps": "Take 10\ntake",
+      "isPublic": false,
+      "id": 30
+    },
+    {
+      "userId": "JyXjFk2owPR2DiwEX0GfObhmp252",
+      "title": "Comming soon 1",
+      "description": "afafa",
+      "actionSteps": "afaaf",
+      "isPublic": false,
+      "id": 31
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "Test challenge",
+      "description": "fsfs",
+      "actionSteps": "sfsfsf",
+      "isPublic": false,
+      "id": 32
+    },
+    {
+      "userId": null,
+      "title": "20 pushup challenge",
+      "description": "do 20 pushups every morning before bed. ",
+      "actionSteps": "wakeup and start working out",
+      "isPublic": true,
+      "id": 33
+    },
+    {
+      "userId": "y6Li0yWZ6WePzhBBpn1vJUsXaCG2",
+      "title": "Test challenge",
+      "description": "sfsf",
+      "actionSteps": "sfsf",
+      "isPublic": true,
+      "id": 34
     }
   ],
   "comments": [

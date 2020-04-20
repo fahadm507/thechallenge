@@ -66,11 +66,11 @@ class ChallengeList extends React.Component {
     return(
       <div>
         <h1> Welcome to the challenge </h1>
-        <Row gutter={16}>
+        <Row gutter={16} style={{ background: '#ECECEC', padding: '30px' }}>
           {challenges}
         </Row>
-        <div style={{ background: '#ECECEC', padding: '30px' }}>
-  </div>
+        {/* <div style={{ background: '#ECECEC', padding: '30px' }}>
+  </div> */}
         { 
           this.state.showModal &&  
           <CustomModal { ...callbacks } { ...modalProps }  />
